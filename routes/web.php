@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware(['checklang'])->group(function () {
+    Route::get('/posts', 'PostController@index')->name('posts');
+});
+
